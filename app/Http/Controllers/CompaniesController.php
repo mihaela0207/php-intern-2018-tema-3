@@ -3,42 +3,45 @@
 namespace App\Http\Controllers;
 
 use App\Company;
+use Illuminate\Http\Request;
 
 class CompaniesController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+
+    public function showAllCompanies()
     {
-        //
+        return response()->json(Company::all());
     }
 
-    /**
-     * Return all companies
-     */
-    public function showAllCompanies(){
-
-        $companies = Company::all();
-        
-        return json_encode($companies);
+    public function showOneCompany($id)
+    {
+        return response()->json(Company::find($id));
     }
 
-    public function getCompanyById($id){
-        // $company = Company::getById($id);
+   public function create(Request $request)
+    {
+        $this->validate($request, [
+            'id' => 'required',
+            'name' => 'required',
+            'description' => 'required|alpha'
+        ]);
 
-        $company = Company::find($id);
+        $company = Company::create($request->all());
 
-
-        // return json_encode($company);
+        return response()->json($company, 201);
     }
 
-    public function getCompanyByType($type){
-        echo 2;
-        $companies = Company::where('type',$type)->get();
+    public function update($id, Request $request)
+    {
+        $company = Company::findOrFail($id);
+        $company->update($request->all());
 
-        // return json_encode($companies);
+        return response()->json($company, 200);
+    }
+
+    public function delete($id)
+    {
+        Company::findOrFail($id)->delete();
+        return response('Deleted Successfully', 200);
     }
 }

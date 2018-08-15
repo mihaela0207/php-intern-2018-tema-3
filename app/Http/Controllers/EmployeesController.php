@@ -3,37 +3,45 @@
 namespace App\Http\Controllers;
 
 use App\Employee;
+use Illuminate\Http\Request;
 
 class EmployeesController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+
+    public function showAllEmployees()
     {
-        //
+        return response()->json(Employee::all());
     }
 
-    // Return all employees
-    public function showAllEmployees(){
-        $employees = Employee::all();
-
-        return json_encode($employees);
+    public function showOneEmployee($id)
+    {
+        return response()->json(Employee::find($id));
     }
 
-    //Return employee by id
-    public function showEmployeeById($id){
-        $employee = Employee::find($id);
+   public function create(Request $request)
+    {
+        $this->validate($request, [
+            'id' => 'required',
+            'company_id' => 'required',
+            'name' => 'required'
+        ]);
 
-        return json_encode($employee);
+        $employee = Employee::create($request->all());
+
+        return response()->json($employee, 201);
     }
 
-    //Return employees by type
-    public function showEmployeeByJob(Request $request){
-        $employees = Employee::where('job', $job)->get();
+    public function update($id, Request $request)
+    {
+        $employee = Employee::findOrFail($id);
+        $employee->update($request->all());
 
-        return json_encode($employees);
+        return response()->json($employee, 200);
+    }
+
+    public function delete($id)
+    {
+        Employee::findOrFail($id)->delete();
+        return response('Deleted Successfully', 200);
     }
 }

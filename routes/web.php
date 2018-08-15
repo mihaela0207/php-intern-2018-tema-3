@@ -10,21 +10,53 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
-
+/*
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+*/
 
-$router->get('/keygen', function() {
-    echo str_random(32);
+//$router->get('companies', 'CompaniesController@showAllCompanies');
+
+
+$router->group(['prefix' => 'api'], function () use ($router)
+
+{
+	//COMPANIES
+
+	$router->get('companies',  ['uses' => 'CompaniesController@showAllCompanies']);
+
+	$router->get('companies/{id}',  ['uses' => 'CompaniesController@showOneCompany']);
+
+	$router->post('companies',  ['uses' => 'CompaniesController@create']);
+
+	$router->post('companies/{id}',  ['uses' => 'CompaniesController@create']);
+
+	$router->delete('companies/{id}',  ['uses' => 'CompaniesController@delete']);
+
+	$router->put('companies/{id}',  ['uses' => 'CompaniesController@update']);
+
+	$router->put('companies',  ['uses' => 'CompaniesController@update']);
+
+
+	//EMPLOYEES
+
+
+	$router->get('employees',  ['uses' => 'EmployeesController@showAllEmployees']);
+
+	$router->get('employees/{id}',  ['uses' => 'EmployeesController@showOneEmployee']);
+
+	$router->post('employees',  ['uses' => 'EmployeesController@create']);
+	$router->post('employees/{id}',  ['uses' => 'EmployeesController@create']);
+
+	//$router->post('employees/{id}',  ['uses' => 'EmployeessController@create']);
+
+	$router->delete('employees/{id}',  ['uses' => 'EmployeesController@delete']);
+
+	$router->put('employees/{id}',  ['uses' => 'EmployeesController@update']);
+
+	$router->put('employees',  ['uses' => 'EmployeesController@update']);
+
+
 });
 
-
-$router->get('/companies', 'CompaniesController@showAllCompanies');
-$router->get('/companies/{id}', 'CompaniesController@getCompanyById');
-
-$router->get('/companies/types/{type}', 'CompaniesController@getCompanyByType');
-
-$router->get('/employees','EmployeesController@showAllEmployees');
-$router->get('/employees/{id}', 'EmployeesController@showEmployeeById');
-$router->get('/employees?job={job}', 'EmployeesController@showEmployeeByJob');

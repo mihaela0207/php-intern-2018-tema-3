@@ -1,76 +1,21 @@
-# Tema curs 3
+# Lumen PHP Framework
 
-## 1. LUMEN CRUD (Create Read Update Delete)
+[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
+[![Total Downloads](https://poser.pugx.org/laravel/lumen-framework/d/total.svg)](https://packagist.org/packages/laravel/lumen-framework)
+[![Latest Stable Version](https://poser.pugx.org/laravel/lumen-framework/v/stable.svg)](https://packagist.org/packages/laravel/lumen-framework)
+[![Latest Unstable Version](https://poser.pugx.org/laravel/lumen-framework/v/unstable.svg)](https://packagist.org/packages/laravel/lumen-framework)
+[![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/laravel/lumen-framework)
 
-    Fork-uiti repo-ul curent si clonati-va fork-ul
+Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
 
-    Creati un CRUD API cu urmatoarele specificatii:
-    - folositi structura de baza de date creata la Tema 2 (folosind migratii)
-    - Creati sectiuni de administrare / listare pentru Companies si Employees care sa foloseasca toate operatiile CRUD si principalele verbe
-        - GET pe toate item-urile
-        - GET pe un item
-        - POST pentru item nou
-        - DELETE item
-        - PATCH / PUT pentru un item existent
-    - Folositi Postman ca sa va testati API-ul
+## Official Documentation
 
-    Commit pe GIT cu noul proiect
-    
-## 3. REST API Principles
-Cititi despre [Data tables](https://datatables.yajrabox.com/)
+Documentation for the framework can be found on the [Lumen website](http://lumen.laravel.com/docs).
 
-## 3. REST API Principles
-Cititi din nou [articolul urmator](https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#restful)
+## Security Vulnerabilities
 
-## 4. Lumen
-Cititi din nou documentatia pentru microframework-ul Lumen:
- - [video](https://laracasts.com/lessons/introducing-lumen)
- - [documentatie scrisa](https://lumen.laravel.com/docs/5.6)
+If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
 
-# Tema curs 2
+## License
 
-## 1. Laravel CRUD (Create Read Update Delete)
-
-    Creati un CRUD cu urmatoarele specificatii:
-    - porniti de la un template de Bootstrap
-    - folositi structura de baza de date creata la Tema 1 (folosind migratii)
-    - Creati sectiuni de administrare / listare pentru Companies si Employees care sa foloseasca toate operatiile CRUD
-
-    Commit pe GIT cu noul proiect
-    
-## 2. REST API Principles
-Cititi [articolul urmator](https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#restful)
-
-## 3. Lumen
-Cititi documentatia pentru microframework-ul Lumen:
- - [video](https://laracasts.com/lessons/introducing-lumen)
- - [documentatie scrisa](https://lumen.laravel.com/docs/5.6)
-
-
-# Tema curs 1
-
-## 1. MVC model
-   Vizionati acest [video](https://www.youtube.com/watch?v=1IsL6g2ixak)
-
-## 2. Cont Github
-Creati un cont pe Github (**daca nu aveti**) si faceti **fork** la [proiect](https://github.com/RowebDev/php-intern-2018.git)
-
-## 3. Laracasts
-Vizionati capitolele **01 - 21** din [Laravel from Scratch](https://laracasts.com/series/laravel-from-scratch-2017)
-## 4. Proiect
-Creati un host nou *http://tema1.local* in **XAMPP**
-Instalati **Laravel**, in folderul unde ati fork-uit proiectul Roweb, asa cum ati vazut pe [Laracasts](https://laracasts.com/series/laravel-from-scratch-2017)
-Creati o baza de date noua, cu numele *practica2018*. Creati **doua** tabele denumite *companies* si *employees*. Adaugati date de test in cele 2 tabele. Campurile lor sunt:
-    
-    Tabel companies
-        - id [unsigned int - cheie primara]
-        - name [varchar 32]
-        - description [text]
-    Tabel employees
-        - id [unsigned int - cheie primara]
-        - company_id [int - cheie straina]
-        - name [varchar 32]
-Exportati si baza de date in fisierul **db.sql**, in radacina proiectului. Commit pe GIT cu tot proiectul, in repo-ul fork-uit de voi.
-
-
-
+The Lumen framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
